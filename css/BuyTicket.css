@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+	background-color: transparent;
+    background-repeat: repeat, no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: auto, cover;
+    -moz-background-size: auto, cover;
+    -o-background-size: auto, cover;
+    background-size: auto, cover;
+    font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	  background: #fff url(../images/bg.jpg) repeat top left;
+	  font-weight: 400;
+	  font-size: 15px;
+    text-align: center;
+	  color: #fff;
+}
+.label{
+  width:100px;
+  text-align:right;
+  float:left;
+  padding-right:10px;
+  font-weight:bold;
+  display: inline-block;
+  clear: left;
+
+}
+
+#register-form label.error {
+  color:#FB3A3A;
+  font-weight:bold;
+}
+.buyform{
+    display: inline-block;
+    line-height: 200%;
+    font-size: 16px;  
+    width: 275px;
+}
+label{
+    float: left;
+}
+.input{
+    padding-right:0px;
+    
+}
+
+.btn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Georgia;
+  color: #fff;
+  font-size: 16px;
+  background: #005580;
+  padding: 10px 20px 10px 20px;
+  margin: 30px 50% 20px 0px;
+  
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+#info{
+  float: right;
+  padding-right: 50px;
+  padding-top: 50px;
+}
+#img{ 
+  width:380px;
+  height: 380px;
+}
+div.kobobqdeli img{
+    margin: 20px 22%;
+    border: 3px solid #000;
+    padding: 1px;
+}
+@media screen and (max-width: 600px)
+{
+    div.kobobqdeli img{
+        display: none;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+        <title>July Morning Event</title>
+        <link rel="icon" type="image/logotitle.png" href="images/logotitle.png" sizes="32x32">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="July Morning" />
+        <meta name="keywords" content="css3" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+    
+        <link rel="stylesheet" type="text/css" href="css/BuyTicket.css">
+    <body>
+        <div class="container">
+        <h1>Buy Ticket</h1>
+            </div>
+        
+        <form action="php/Success.php" method="post">
+            First name: <input type="text" name="firstname"><br>
+            Last name: <input type="text" name="lastname"><br>
+            Date of birth: <input type="date" name="dob"><br>
+            Gender:
+            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="male">Male <br>
+            E-mail: <input type="text" name="email"><br>
+            Would you like to book a camping spot? <br>
+            <input type="radio" name="camping" value="yes">Yes
+            <input type="radio" name="camping" value="no">No<br>
+            How many guests would you like to bring? (max. 5)<br>
+            <select name="nrofguests">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+            </select><br>
+            Please specify their visitor id's:<br>
+            <input type="text" name="guestid"><br>
+            <input type="submit">
+        </form>
+        
+        
+        
+    </body>
+    </head>
+    
+</html>

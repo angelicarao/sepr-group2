@@ -1,0 +1,113 @@
+        div.campingspot form{
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: black;
+            opacity: 0.6;
+			filter: alpha(opacity=80);
+            margin: 0px 21% 2%;
+}
+        div.campingspot label{
+            color: #fff;
+            text-align: center;
+            margin: 10px 0px 10px;
+            font-size: 23px;
+}
+        div.campingspot p{
+            color: #fff;
+            text-align: center;
+            font-size: 20px;
+            margin:10px 0 10px 0;
+            position: relative;
+            
+}
+        div.campingspot input[type=radio],
+        input.radio {
+           position:static;
+           clear: none;
+           margin: 10px 0 0 5px;
+}
+        div.campingspot input[type=submit]{
+           margin: 20px 0 10px 0;
+           padding:5px 15px; 
+           background:#99d6ff; 
+           border:0 none;
+           cursor:pointer;
+           -webkit-border-radius: 5px;
+           border-radius: 5px; 
+           font-size: 25px;
+           font-weight: bolder;
+            opacity: 50%;           
+}
+        div.campingspot input[type=submit]:hover{
+            background: #0099ff;
+            opacity: 69%;
+}
+        div.campingspot strong{
+            color: #e60000;
+            font-size: 23px;
+            font-weight: bold;
+}
+        div.campingspot h1{
+            color: #FFF;
+            opacity: 0.7;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: left;
+            padding-bottom: 1%;
+            margin-left: 22%;
+            margin-top: 4%;
+}
+div.boughtticket h1{
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 20% 0 20%;
+}
+div.boughtticket a{
+            color: #ff99ff;
+            font-size: 15px;
+            font-weight: bold;
+}
+div.boughtticket a:visited{
+            color: #ffb3ff;
+            
+}
+div.floating img{
+    float: right;
+    position: fixed;
+    clear: left;
+    margin: 5% 0px 0px 0px;
+}
+
+@media only screen and (min-width:150px) and (max-width:900px)
+{
+    p.codrops-demos a,
+p.codrops-demos a.current-demo,
+p.codrops-demos a.current-demo:hover{
+    display: inline-block;
+	font-size: 11px;
+	font-style: italic;
+	width: 64px;
+	height: 64px;
+	margin: 0px 15px;
+	line-height: 60px;
+	border-radius: 50%;
+	font-weight: 800;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.01) inset;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	background: rgba(104,171,194,0.0);
+    
+}
+    div.campingspot  h1{
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 5%;
+            margin-left: 5%;
+            width:80%;
+            margin-right: 5%;
+}
+}

@@ -1,0 +1,517 @@
+.cr-container{
+	width: 600px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	border: 20px solid rgba(255,255,255,0.0);
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.0);
+}
+.cr-container label{
+	font-style: italic;
+	width: 150px;
+	height: 30px;
+	cursor: pointer;
+	color: #fff;
+	line-height: 32px;
+	font-size: 24px;
+	float:left;
+	position: relative;
+	margin-top:350px;
+	z-index: 1000;
+}
+.cr-container label:before{
+	content:'';
+	width: 34px;
+	height: 34px;
+	background: rgba(255,255,255,0.2);
+	position: absolute;
+	left: 50%;
+	margin-left: -17px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 0px 4px rgba(255,255,255,0.1);
+	z-index:-1;
+}
+.cr-container label:after{
+	width: 1px;
+	height: 400px;
+	content: '';
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+	position: absolute;
+	bottom: -20px;
+	right: 0px;
+}
+.cr-container label.cr-label-img-4:after{
+	width: 0px;
+}
+.cr-container input.cr-selector-img-1:checked ~ label.cr-label-img-1,
+.cr-container input.cr-selector-img-2:checked ~ label.cr-label-img-2,
+.cr-container input.cr-selector-img-3:checked ~ label.cr-label-img-3,
+.cr-container input.cr-selector-img-4:checked ~ label.cr-label-img-4{
+	color: #000000;
+}
+.cr-container input.cr-selector-img-1:checked ~ label.cr-label-img-1:before,
+.cr-container input.cr-selector-img-2:checked ~ label.cr-label-img-2:before,
+.cr-container input.cr-selector-img-3:checked ~ label.cr-label-img-3:before,
+.cr-container input.cr-selector-img-4:checked ~ label.cr-label-img-4:before{
+	background: #fff;
+	box-shadow: 0px 0px 0px 4px rgba(104,171,194,0.0);
+}
+.cr-container input{
+	display: none;
+}
+.cr-bgimg{
+	width: 600px;
+	height: 400px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+.cr-bgimg{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.cr-bgimg div{
+	width: 150px;
+	height: 100%;
+	position: relative;
+	float: left;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+.cr-bgimg div span{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+	opacity: 0;
+	z-index: 2;
+	text-indent: -9000px;
+}
+.cr-container input.cr-selector-img-1:checked ~ .cr-bgimg,
+.cr-bgimg div span:nth-child(1){
+	background-image: url(../images/1.jpg);
+}
+.cr-container input.cr-selector-img-2:checked ~ .cr-bgimg,
+.cr-bgimg div span:nth-child(2){
+	background-image: url(../images/2.jpg);
+}
+.cr-container input.cr-selector-img-3:checked ~ .cr-bgimg,
+.cr-bgimg div span:nth-child(3){
+	background-image: url(../images/3.jpg);
+}
+.cr-container input.cr-selector-img-4:checked ~ .cr-bgimg,
+.cr-bgimg div span:nth-child(4){
+	background-image: url(../images/4.jpg);
+}
+.cr-bgimg div:nth-child(1) span{
+	background-position: 0px 0px;
+}
+.cr-bgimg div:nth-child(2) span{
+	background-position: -150px 0px;
+}
+.cr-bgimg div:nth-child(3) span{
+	background-position: -300px 0px;
+}
+.cr-bgimg div:nth-child(4) span{
+	background-position: -450px 0px;
+}
+.cr-container input:checked ~ .cr-bgimg div span{
+	-webkit-animation: scaleOut 0.6s ease-in-out;
+	-moz-animation: scaleOut 0.6s ease-in-out;
+	-o-animation: scaleOut 0.6s ease-in-out;
+	-ms-animation: scaleOut 0.6s ease-in-out;
+	animation: scaleOut 0.6s ease-in-out;
+}
+@-webkit-keyframes scaleOut{
+	0%{ -webkit-transform: scale(1); opacity: 1; }
+	100%{ -webkit-transform: scale(1.5); opacity: 0; }
+}
+@-moz-keyframes scaleOut{
+	0%{ -moz-transform: scale(1); opacity: 1; }
+	100%{ -moz-transform: scale(1.5); opacity: 0; }
+}
+@-o-keyframes scaleOut{
+	0%{ -o-transform: scale(1); opacity: 1; }
+	100%{ -o-transform: scale(1.5); opacity: 0; }
+}
+@-ms-keyframes scaleOut{
+	0%{ -ms-transform: scale(1); opacity: 1; }
+	100%{ -ms-transform: scale(1.5); opacity: 0; }
+}
+@keyframes scaleOut{
+	0%{ transform: scale(1); opacity: 1; }
+	100%{ transform: scale(1.5); opacity: 0; }
+}
+.cr-container input.cr-selector-img-1:checked ~ .cr-bgimg div span:nth-child(1),
+.cr-container input.cr-selector-img-2:checked ~ .cr-bgimg div span:nth-child(2),
+.cr-container input.cr-selector-img-3:checked ~ .cr-bgimg div span:nth-child(3),
+.cr-container input.cr-selector-img-4:checked ~ .cr-bgimg div span:nth-child(4)
+{
+	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;
+	-moz-transition: -moz-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;
+	-o-transition: -o-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;
+	-ms-transition: -ms-transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;
+	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.6s;
+	-webkit-animation: none;
+	-moz-animation: none;
+	-o-animation: none;
+	-ms-animation: none;
+	animation: none;
+	opacity: 1;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	z-index:10000;
+}
+div.goten h2{
+    color: black;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    font-size: 50px;
+    text-align: left;
+    margin-left: 5%;
+    
+}
+div.kon4i img{
+    float:right;
+    opacity: 100%;
+    margin-right: 10%;
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+div.goten h3{
+    color: black;
+    font-size: 30px;
+    text-align: left;
+    margin-left: 5%;
+}
+
+div.goten input[type=submit]{
+    width: 180px;
+    height: 50px;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+div.goten form{
+    text-align: left;
+    color: #fff;
+    margin-left: 5%;
+    text-decoration-color: black;
+    background: #000;
+}
+div.goten h6{
+    font-size: 20px;
+    text-align: left;
+    margin-left: auto;
+    color: #fff;
+}
+div.orbe h3{
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    font-family: monospace;
+}
+div.orbe h5{
+    color: #fff;
+    font-size: 30px;
+    text-align: left;
+    font-family: monospace;
+    text-decoration-style: solid;
+}
+div.pe4en a{
+    color: #fff;
+    font-size: 50;
+    margin-right: 15%;
+    
+}
+textarea {
+    resize: none;
+}
+.cr-titles h3{
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.cr-titles h3 span{
+	z-index: 10000;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	text-align: center;
+	opacity: 0;
+	top: 50%;
+}
+.cr-titles h3 span:nth-child(1){
+	left: 0px;
+	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	font-size: 70px;
+	letter-spacing: 7px;
+	color: transparent;
+	text-shadow: 0px 0px 10px #fff;
+	-webkit-transition: text-shadow 0.8s ease-in-out, opacity 0.8s ease-in-out;
+	-moz-transition: text-shadow 0.8s ease-in-out, opacity 0.8s ease-in-out;
+	-o-transition: text-shadow 0.8s ease-in-out, opacity 0.8s ease-in-out;
+	-ms-transition: text-shadow 0.8s ease-in-out, opacity 0.8s ease-in-out;
+	transition: text-shadow 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+.cr-titles h3 span:nth-child(2){
+	margin-top: 100px;
+	letter-spacing: 0px;
+	background: rgba(255,255,255,0.01);
+	font-size: 14px;
+	padding: 10px 0px;
+	font-style: italic;
+	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	-webkit-transition: opacity 0.8s ease-in-out;
+	-moz-transition: opacity 0.8s ease-in-out;
+	-o-transition: opacity 0.8s ease-in-out;
+	-ms-transition: opacity 0.8s ease-in-out;
+	transition: opacity 0.8s ease-in-out;
+}
+.cr-container input:checked ~ .cr-titles h3 span{
+	opacity: 0;
+	text-shadow: 0px 0px 30px #fff;
+}
+.cr-container input.cr-selector-img-1:checked ~ .cr-titles h3:nth-child(1) span:nth-child(1),
+.cr-container input.cr-selector-img-2:checked ~ .cr-titles h3:nth-child(2) span:nth-child(1),
+.cr-container input.cr-selector-img-3:checked ~ .cr-titles h3:nth-child(3) span:nth-child(1),
+.cr-container input.cr-selector-img-4:checked ~ .cr-titles h3:nth-child(4) span:nth-child(1){
+	opacity: 1;
+	text-shadow: 0px 0px 1px #fff;
+}
+.cr-container input.cr-selector-img-1:checked ~ .cr-titles h3:nth-child(1) span:nth-child(2),
+.cr-container input.cr-selector-img-2:checked ~ .cr-titles h3:nth-child(2) span:nth-child(2),
+.cr-container input.cr-selector-img-3:checked ~ .cr-titles h3:nth-child(3) span:nth-child(2),
+.cr-container input.cr-selector-img-4:checked ~ .cr-titles h3:nth-child(4) span:nth-child(2){
+	opacity: 1;
+}
+/*veso*/
+		div.box4e {
+			margin: 10px 20%;
+			background-color: #000;
+			border: 1px solid black;
+            border-radius: 15px;
+			opacity: 0.6;
+			filter: alpha(opacity=80); 
+			}
+
+		div.box4e p {
+			margin: 5% 5%;
+			text-align: left;
+			font-weight: bold;
+			color: #fff;
+            font-size: 20px;
+            font-family:monospace;
+            }
+        div.box4e2 {
+            margin: 10px 35% 0px 35%;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: black;
+            opacity: 0.6;
+    
+}
+        div.box4e2 p{
+            color: #fff;
+            margin: 12px 10px 0px 5px;
+            text-align: left;
+            
+}
+        div.box4e2 label{
+            color: #fff;
+            text-align: left;
+            float: left;
+            margin: 10px 0px 0px 5%;
+            font-size: 20px;
+            
+}
+        div.buton4i input[type=image]{
+            float: right;
+            margin-right: 10%;
+            margin-left: 10%;
+            max-width: 80%;
+            height: auto;
+            width: auto;
+            
+}
+        div.box4e.drop4e{
+            float:left;
+    
+}
+        div.label4e label{
+            color: #fff;
+            text-align: left;
+            float: left;
+            margin: 10px 0px 0px 5px;
+            font-size: 10px;
+            
+}
+        div.box4e2 input[type=text]{
+            float: left;
+            margin: 15px 0px 0px 5px;
+}
+        div.box4e2 input[type=date]{
+            float: left;
+            margin: 15px 0px 0px 5px;
+}
+        div.box4e2 input[type=radio]{
+            float: left;
+            margin: 15px 0px 0px 5%;
+}
+        div.box4e2 input[type=email]{
+            float: left;
+            margin: 15px 0px 0px 5px;
+}   
+        div.box4e2 input[type=email]{
+            
+            margin: 15px 40px 0px 5px;
+}  
+        .btnwe4iek{
+            -webkit-border-radius: 5;
+            -moz-border-radius: 5;
+            border-radius: 5px;
+            font-family: Georgia;
+            color: #fff;
+            font-size: 16px;
+            background: #005580;
+            padding: 10px 20px 10px 20px;
+            margin: 3px;
+}
+        .hieded a{
+            color: #fff;
+            font-size: 20px;
+            font-family: Georgia;
+            
+            
+}
+        div.campingspot form{
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: black;
+            opacity: 0.6;
+			filter: alpha(opacity=80);
+            margin: 0px 21% 2%;
+}
+        div.campingspot label{
+            color: #fff;
+            text-align: center;
+            margin: 10px 0px 10px;
+            font-size: 23px;
+}
+        div.campingspot p{
+            color: #fff;
+            text-align: center;
+            font-size: 20px;
+            margin:10px 0 10px 0;
+            position: relative;
+            
+}
+        div.campingspot input[type=radio],
+        input.radio {
+           position:static;
+           clear: none;
+           margin: 10px 0 0 5px;
+}
+        div.campingspot input[type=submit]{
+           margin: 20px 0 10px 0;
+           padding:5px 15px; 
+           background:#99d6ff; 
+           border:0 none;
+           cursor:pointer;
+           -webkit-border-radius: 5px;
+           border-radius: 5px; 
+           font-size: 25px;
+           font-weight: bolder;
+            opacity: 50%;           
+}
+        div.campingspot input[type=submit]:hover{
+            background: #0099ff;
+            opacity: 69%;
+}
+        div.campingspot strong{
+            color: #e60000;
+            font-size: 23px;
+            font-weight: bold;
+}
+        div.campingspot h1{
+            color: #000;
+            opacity: 0.6;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 22%;
+            margin-top: 4%;
+}
+div.boughtticket h1{
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 20% 0 20%;
+}
+div.boughtticket a{
+            color: #ff99ff;
+            font-size: 15px;
+            font-weight: bold;
+}
+div.boughtticket a:visited{
+            color: #ffb3ff;
+            
+}
+div.floating img{
+    float: right;
+    position: fixed;
+    clear: left;
+    margin: 5% 0px 0px 0px;
+}
+/* Media Query: Let's show the inputs on mobile sized browsers because they probably don't support the label trick: */
+@media screen and (max-width: 768px) {
+	.cr-container input{
+		display: inline;
+		width: 24%;
+		margin-top: 350px;
+		z-index: 1000;
+		position: relative;
+	}
+	.cr-container label{
+		display: none;
+	}
+}
+@media only screen and (min-width:150px) and (max-width:800px)
+{
+    .cr-container{
+	width:90%;
+	height: auto;
+        margin-left: 0 auto;
+        margin-right: 0 auto;
+        margin-bottom: 2%;
+	position: relative;
+	overflow: hidden;
+	border: 0px ;
+
+}   
+}
+@media screen and (max-width: 1200px)
+{   
+    div.box4e2 {
+            margin: 10px 21%;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: black;
+            opacity: 0.6;
+}
