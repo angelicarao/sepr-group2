@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 04, 2018 at 02:11 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: studmysql01.fhict.local
+-- Generation Time: Sep 13, 2018 at 11:47 AM
+-- Server version: 5.7.13-log
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `july_morning`
+-- Database: `dbi339805`
 --
 
 -- --------------------------------------------------------
@@ -38,6 +36,15 @@ CREATE TABLE `booking` (
   `ID_5` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`SpotID`, `ID_main`, `ID_1`, `ID_2`, `ID_3`, `ID_4`, `ID_5`) VALUES
+(1, 1, NULL, NULL, NULL, NULL, NULL),
+(2, 2, 1, 3, NULL, NULL, NULL),
+(3, 2, 1, 3, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +61,17 @@ CREATE TABLE `visitor` (
   `GuestOf` varchar(45) DEFAULT NULL,
   `Active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visitor`
+--
+
+INSERT INTO `visitor` (`VisitorID`, `FirstName`, `LastName`, `Dob`, `Gender`, `Email`, `GuestOf`, `Active`) VALUES
+(1, 'hi', 'mate', '2018-09-05', '1', 'j@j.j', '2', 1),
+(2, 'angie', 'rao', '1997-12-11', 'F', 'angie@abv.bg', '2', 0),
+(3, 'j', 'as', '1997-12-02', 'F', 'k@k.k', '2', 0),
+(4, 'angelica', 'bomd', '1997-12-18', 'F', 'angelicarao.ar@gmail.com', '2', 0),
+(5, 'A', 'S', '1997-12-31', 'M', 'a@a.a', NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -77,11 +95,15 @@ ALTER TABLE `visitor`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `SpotID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
@@ -91,7 +113,6 @@ ALTER TABLE `visitor`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `visitor_id_f` FOREIGN KEY (`ID_main`) REFERENCES `visitor` (`VisitorID`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
