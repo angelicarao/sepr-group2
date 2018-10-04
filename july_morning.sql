@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: studmysql01.fhict.local
--- Generation Time: Sep 13, 2018 at 11:47 AM
+-- Generation Time: Oct 04, 2018 at 12:57 PM
 -- Server version: 5.7.13-log
 -- PHP Version: 5.6.33
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbi339805`
+-- Database: `dbi334307`
 --
 
 -- --------------------------------------------------------
@@ -41,9 +41,7 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`SpotID`, `ID_main`, `ID_1`, `ID_2`, `ID_3`, `ID_4`, `ID_5`) VALUES
-(1, 1, NULL, NULL, NULL, NULL, NULL),
-(2, 2, 1, 3, NULL, NULL, NULL),
-(3, 2, 1, 3, NULL, NULL, NULL);
+(1, 1, 2, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -68,10 +66,7 @@ CREATE TABLE `visitor` (
 
 INSERT INTO `visitor` (`VisitorID`, `FirstName`, `LastName`, `Dob`, `Gender`, `Email`, `GuestOf`, `Active`) VALUES
 (1, 'hi', 'mate', '2018-09-05', '1', 'j@j.j', '2', 1),
-(2, 'angie', 'rao', '1997-12-11', 'F', 'angie@abv.bg', '2', 0),
-(3, 'j', 'as', '1997-12-02', 'F', 'k@k.k', '2', 0),
-(4, 'angelica', 'bomd', '1997-12-18', 'F', 'angelicarao.ar@gmail.com', '2', 0),
-(5, 'A', 'S', '1997-12-31', 'M', 'a@a.a', NULL, 0);
+(2, 'angie', 'rao', '1997-12-11', 'F', 'angie@abv.bg', '2', 0);
 
 --
 -- Indexes for dumped tables
@@ -103,7 +98,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
