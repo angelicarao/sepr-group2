@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 04, 2018 at 02:11 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: studmysql01.fhict.local
+-- Generation Time: Oct 05, 2018 at 01:01 PM
+-- Server version: 5.7.13-log
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `july_morning`
+-- Database: `dbi339805`
 --
 
 -- --------------------------------------------------------
@@ -41,6 +39,19 @@ CREATE TABLE `booking` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userId` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `visitor`
 --
 
@@ -49,10 +60,11 @@ CREATE TABLE `visitor` (
   `FirstName` varchar(45) NOT NULL,
   `LastName` varchar(45) NOT NULL,
   `Dob` date NOT NULL,
-  `Gender` varchar(1) NOT NULL,
+  `Gender` varchar(255) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `GuestOf` varchar(45) DEFAULT NULL,
-  `Active` tinyint(1) NOT NULL
+  `Active` tinyint(1) NOT NULL,
+  `UserId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -67,21 +79,37 @@ ALTER TABLE `booking`
   ADD KEY `visitor_id_f` (`ID_main`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userId`);
+
+--
 -- Indexes for table `visitor`
 --
 ALTER TABLE `visitor`
-  ADD PRIMARY KEY (`VisitorID`);
+  ADD PRIMARY KEY (`VisitorID`),
+  ADD KEY `UserId` (`UserId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `SpotID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `VisitorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- Constraints for dumped tables
 --
@@ -91,7 +119,12 @@ ALTER TABLE `visitor`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `visitor_id_f` FOREIGN KEY (`ID_main`) REFERENCES `visitor` (`VisitorID`);
-COMMIT;
+
+--
+-- Constraints for table `visitor`
+--
+ALTER TABLE `visitor`
+  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
