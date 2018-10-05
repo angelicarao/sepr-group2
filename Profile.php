@@ -2,6 +2,19 @@
 include('php/Connection.php');
 include('includes/header.php');
 include('php/session.php');
+
+if (!empty($_SESSION["Log"]) && $_SESSION["Log"] == true) {
+    $userId = $_SESSION["userId"];
+    $sql = "SELECT Email FROM visitor WHERE UserId ='$userId'";
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+    if ($count == 0) {
+        header("Location: http://i339805.hera.fhict.nl/BuyTicket.php");
+    }
+} else {
+    header("Location: http://i339805.hera.fhict.nl/index.php");
+}
+
 ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
 </script>
@@ -32,10 +45,6 @@ include('php/session.php');
 
 <div class="campingspot">
 <h1><?php
-    echo "ID : " . $_SESSION["id"] . " ";
-    echo "<br> Name: ".$_SESSION["Visitor"] . " ";
-    echo $_SESSION["VisitorLname"] . " ";
-    echo "<br>";
     echo " Email : " . $_SESSION["email"];
     ?></h1>
 </div>

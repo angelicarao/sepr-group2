@@ -3,15 +3,15 @@ require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
 
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->Host = 'mailrelay.fhict.local';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'dreamteamfontysen@gmail.com';                 // SMTP username
-        $mail->Password = 'dreamteam1';                           // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                                    // TCP port to connect to
+        #$mail->Username = 'dreamteamfontysen@gmail.com';                 // SMTP username
+        #$mail->Password = 'dreamteam1';                           // SMTP password
+        #$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        #$mail->Port = 587;                                    // TCP port to connect to
 
-        $mail->setFrom('dreamteamfontysen@gmail.com', 'Dream');
-        $mail->addAddress('dreamteamfontysen@gmail.com');
+        $mail->setFrom('i339805@hera.fhict.nl', 'Dream');
+        $mail->addAddress('jordanalipiev@yahoo.com');
 
         $mail->Subject = 'Account Activation';
         $mail->Body    = 'Hello, ';

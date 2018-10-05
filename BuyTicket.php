@@ -1,15 +1,19 @@
 <?php
 include('php/Connection.php');
-include ('includes/header.php');
+include('includes/header.php');
 include('php/session.php');
+
+if (empty($_SESSION["Log"]) || $_SESSION["Log"] == false) {
+    header("Location: http://i339805.hera.fhict.nl/index.php");
+}
 
 ?>
 
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="icon" type="image/logotitle.png" href="images/logotitle.png" sizes="32x32">
-<meta name="keywords" content="July,Morning" />
-<link rel="stylesheet" type="text/css" href="css/demoG.css" />
+<meta name="keywords" content="July,Morning"/>
+<link rel="stylesheet" type="text/css" href="css/demoG.css"/>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/demoG.css"/>
 <link rel="stylesheet" type="text/css" href="css/style4.css"/>
@@ -24,24 +28,26 @@ include('php/session.php');
 
 <div id="register">
     <h1 id="title">Buy Ticket</h1>
-    
+
     <div class="box4e2">
-        <form  method="POST" name="register-form" >
+        <form method="POST" name="register-form">
             <br>
             <label>First name: </label>
             <input type="text" name="firstname" maxlength="50" class="input" required>
             <br>
             <br><br>
-            <label>Last name: </label> 
+            <label>Last name: </label>
             <input type="text" name="lastname" maxlength="50" class="input" required>
             <br><br><br>
             <label> Date of birth: </label>
             <input type="date" name="dob" class="input" id="datepicker" min="1900-01-01" max="1997-12-31" required>
             <br><br><br>
             <label>Gender:</label><br><br><br><br>
-            <input type="radio" name="gender" id = "gender" value="F"><p>Female</p>
+            <input type="radio" name="gender" id="gender" value="F">
+            <p>Female</p>
             <br>
-            <input type="radio" name="gender" id = "gender" checked="" value="M"><p>Male</p>
+            <input type="radio" name="gender" id="gender" checked="" value="M">
+            <p>Male</p>
             <br>
             <label>E-mail: </label> <input type="email" name="email" maxlength="50" value="" class="input" required>
             <br>
@@ -49,7 +55,7 @@ include('php/session.php');
         </form>
     </div>
     <div class="kobobqdeli">
-            <img id="img" src="images/ticketinfo.jpg" alt="Ticket information">
+        <img id="img" src="images/ticketinfo.jpg" alt="Ticket information">
     </div>
 </div>
 <div class="boughtticket">
@@ -57,7 +63,8 @@ include('php/session.php');
         <h1>You have successfully bought a ticket for July Morning. Check your email for more information!<br>
             Click <a href="index.php">here</a> to go back to the website.</h1>
     </div>
-    <div id="boughtticket1" style="display:none"><h1>You have already bought a ticket!<br> If you wish to buy another one, please log out and create a new profile!</h1></div>
+    <div id="boughtticket1" style="display:none"><h1>You have already bought a ticket!<br> If you wish to buy another
+            one, please log out and create a new profile!</h1></div>
 </div>
 <script type="text/javascript">
     var datefield = document.createElement("input")
@@ -77,10 +84,15 @@ include('php/session.php');
     }
 </script>
 <?php
+$userId = $_SESSION["userId"];
+$sql = "SELECT Email FROM visitor WHERE UserId ='$userId'";
+$result = mysqli_query($con, $sql);
+$count = mysqli_num_rows($result);
+if ($count > 0) {
+    echo "<script> $('#register').hide();
+                $('#boughtticket1').show();</script>";
+}
+
 include 'includes/footer.php';
 require('php/formvalidation.php');
-if($_SESSION["Log"] == true){
-    echo "<script> $('#register').hide();"
-        . "$('#boughtticket1').show(); $('#success').hide(); </script>";
-}
 ?>

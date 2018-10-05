@@ -1,58 +1,53 @@
 <?php
-
-    include('Connection.php');
-
+include('Connection.php');
 include('session.php');
-echo"<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>";
 
-if($_POST){
-    $error="";
-    $_SESSION["Log"] = FALSE;
-
-    $email = $_POST['email'];
-    $id = $_POST['id'];
+if (!empty($_POST)) {
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
     
-if(empty($_POST['email']))
-{
-    echo "<script type='text/javascript'>alert('Empty email field')</script>";
-    return false;
-}
-    if(empty($_POST['id']))
-    {
-        echo "<script type='text/javascript'>alert('Empty password field')</script>";
-        return false;
+    if (empty($email)) {
+        $error .= "Email field is empty ";
     }
-    
-    $sql = "SELECT VisitorID, Email, FirstName, LastName FROM visitor WHERE VisitorID = '$id' and Email = '$email'";
-    $result = mysql_query($sql);
-    $row = mysql_fetch_array($result,MYSQLI_ASSOC);
-    $count = mysql_num_rows($result);
-    
+    if (empty($password)) {
+        $error .= "Password field is empty ";
+    }
 
-    if ($count > 0) {
-        
-       
-            if ($row["Email"] == $email && $row["VisitorID"]==$id) {
+    if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        $secret = '6Lcjc3MUAAAAAJ1oo_NUZE42Oxds7Nimr40VZF6A';
+        $post_data = http_build_query(
+            array(
+                'secret' => $secret,
+                'response' => $_POST['g-recaptcha-response']
+            )
+        );
+        $opts = array('http' =>
+            array(
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'content' => $post_data
+            )
+        );
+        $context  = stream_context_create($opts);
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify',false,$context);
+        $responseData = json_decode($verifyResponse);
+        if ($responseData->success && empty($error)) {
+            $sql = "SELECT userId, email, password FROM users WHERE email ='$email'";
+            $result = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-                $_SESSION["Visitor"] = $row["FirstName"];
+            if (password_verify($password, $row["password"]) && $row["email"] == $email) {
                 $_SESSION["Log"] = TRUE;
-                $_SESSION["email"] = $row["Email"];
-                $_SESSION["id"] = $row["VisitorID"];
-                $_SESSION["VisitorLname"] = $row["LastName"];
-                echo "<script> 
-                
-                $('#nameLogged').show();
-                $('#hide').hide();
-                $('#hided').show();
-                </script>";
-                header("Location: index.php");
+                $_SESSION["email"] = $row["email"];
+                $_SESSION["userId"] = $row["userId"];
+
+                header("Location: http://i339805.hera.fhict.nl/index.php");
+            } else {
+                $error .= "Incorrect email or password.";
             }
-            
-        
-    }
-    else
-    {
-        echo "<script type='text/javascript'>alert('Wrong Email or ID')</script>";
+        } else {
+            $error .= "Captcha is not confirmed";
+        }
     }
 }
 ?>
