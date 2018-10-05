@@ -50,11 +50,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		        }
             else{
                 $userId = $_SESSION["userId"];
-                // Prepared insertion query.
-                $stmt =  $con->prepare("INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,Gender,UserId) VALUES (?,?,?,?,?,?,?)");
-                $stmt -> bind_param("ssssisi",$firstname,$lastname,$dob,$email,$active,$gender,$userId);
+                $sql = "INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,UserId,Gender) VALUES ('$firstname','$lastname','$dob','$email','$active','$userId','$gender')";
+                $result = mysqli_multi_query($con,$sql);
 
-                if ($stmt->execute()) {
+                if ($result) {
                     echo "New record created successfully";
                     echo "<script> $('#register').hide();"
                     . "$('#success').show(); $('#boughtticket1').hide();</script>"; 
