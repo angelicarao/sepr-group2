@@ -41,7 +41,7 @@ if (!empty($_POST)) {
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["userId"] = $row["userId"];
 
-                header("Location: http://i339805.hera.fhict.nl/index.php");
+                header("Location: https://i339805.hera.fhict.nl/index.php");
             } else {
                 $error .= "Incorrect email or password.";
             }

@@ -49,18 +49,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		        	echo "<script type='text/javascript'>alert('This email is in use')</script>";
 		        }
             else{
-                $userId = $_SESSION["userId"];
-                $sql = "INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,UserId,Gender) VALUES ('$firstname','$lastname','$dob','$email','$active','$userId','$gender')";
-                $result = mysqli_multi_query($con,$sql);
+                $stmt =  $con->prepare("INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,Gender) VALUES (?,?,?,?,?,?)");
+                $stmt -> bind_param("ssssis",$firstname,$lastname,$dob,$email,$active,$gender);
 
-                if ($result) {
+                if ($stmt->execute()) {
                     echo "New record created successfully";
                     echo "<script> $('#register').hide();"
                     . "$('#success').show(); $('#boughtticket1').hide();</script>"; 
                 } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                    echo "<script type='text/javascript'>alert('".mysqli_error()."')</script>";
-                    echo ('sadface'.mysqli_error());
+                    echo "<script type='text/javascript'>alert('Something went wrong')</script>";
                 }
             }
                     

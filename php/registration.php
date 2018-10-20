@@ -54,7 +54,7 @@ if (!empty($_POST)) {
             if (mysqli_query($con, $sql) === TRUE) {
                 $error .= "Email already exists.";
                 $_SESSION['errors'] = $error;
-                header("Location: http://i339805.hera.fhict.nl/SignUpForm.php");
+                header("Location: https://i339805.hera.fhict.nl/SignUpForm.php");
                 return false;
             }
 
@@ -65,12 +65,12 @@ if (!empty($_POST)) {
                 $_SESSION["Log"] = TRUE;
                 $_SESSION["email"] = $email;
                 $_SESSION["userId"] = mysqli_insert_id($con);
-                header("Location: http://i339805.hera.fhict.nl/index.php");
+                header("Location: https://i339805.hera.fhict.nl/index.php");
                 return true;
             } else {
                 $error .= "Could not insert user. " . $result;
                 $_SESSION['errors'] = $error;
-                header("Location: http://i339805.hera.fhict.nl/SignUpForm.php");
+                header("Location: https://i339805.hera.fhict.nl/SignUpForm.php");
                 return false;
             }
         } else
@@ -78,6 +78,6 @@ if (!empty($_POST)) {
     }
     echo $error;
     $_SESSION['errors'] = $error;
-    header("Location: http://i339805.hera.fhict.nl/SignUpForm.php");
+    header("Location: https://i339805.hera.fhict.nl/SignUpForm.php");
 }
 ?>
