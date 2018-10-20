@@ -40,6 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         else{
             $email = $_POST["email"];
+            $userId = $_SESSION["userId"];
             /* Prepared statement, stage 1: prepare */
 		    $sql = "SELECT Email FROM visitor WHERE Email = '$email'";
             $result = mysqli_query($con, $sql);
@@ -49,8 +50,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		        	echo "<script type='text/javascript'>alert('This email is in use')</script>";
 		        }
             else{
-                $stmt =  $con->prepare("INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,Gender) VALUES (?,?,?,?,?,?)");
-                $stmt -> bind_param("ssssis",$firstname,$lastname,$dob,$email,$active,$gender);
+                $stmt =  $con->prepare("INSERT INTO visitor (FirstName,LastName,Dob,Email,Active,UserId,Gender) VALUES (?,?,?,?,?,?,?)");
+                $stmt -> bind_param("ssssiis",$firstname,$lastname,$dob,$email,$active,$userId,$gender);
 
                 if ($stmt->execute()) {
                     echo "New record created successfully";
