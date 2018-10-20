@@ -17,7 +17,7 @@ include('php/session.php');
     <link rel="stylesheet" type="text/css" href="css/style-mobile">
     <link rel="stylesheet" type="text/css" href="css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="css/style7.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'/>
     <link rel='stylesheet' type='text/css' href="css/style4.css"/>
 
 </head>
@@ -43,7 +43,7 @@ include('php/session.php');
             <li id="ticket"><a href="BuyTicket.php">Buy Ticket</a></li>
         </ul>
     </div>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <?php
     if (!empty($_SESSION["Log"]) && $_SESSION["Log"] == true) {
         echo "<script>
