@@ -35,6 +35,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 			$errors .='A valid email address is required!\n';
         }
+        if(!preg_match("/^M$|^F$/",$gender)){
+            $errors .= 'The gender should be either M or F!\n';
+        }
         if($errors!=""){
             echo "<script type='text/javascript'>alert('$errors')</script>";
         }
